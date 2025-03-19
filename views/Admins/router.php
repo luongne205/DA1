@@ -3,6 +3,8 @@ ob_start();
 include './home/index.php';
 
 // Require necessary files
+require_once('../../commons/env.php'); // Environmental variables
+require_once '../../commons/function.php'; // Utility functions
 require_once '../../controllers/AdminController.php';
 require_once '../../models/AdminModels.php';
 
@@ -19,7 +21,8 @@ match ($act) {
     'xoadm' => (new HomeController())->deleteDm(),  
     'formSuaDm' => (new HomeController())->formSuaDm(),  
     'postSuaDm' => (new HomeController())->updateDm(),  
-  
+
+   
 
 };
 
