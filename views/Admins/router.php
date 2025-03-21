@@ -1,4 +1,4 @@
-<?php 
+<?php
 ob_start();
 include './home/index.php';
 
@@ -9,32 +9,32 @@ require_once '../../controllers/AdminController.php';
 require_once '../../models/AdminModels.php';
 
 // Route  
-$act = $_GET['act'] ?? '/';  
+$act = $_GET['act'] ?? '/';
 
 // Match to route the request to the corresponding controller action  
-match ($act) {  
+match ($act) {
+
+    '/' => (new HomeController())->home(),
 
     // Categories (Danh Mục)  
-    'addDm' => (new HomeController())->formAddDm(),  
-    'listDm' => (new HomeController())->listDm(),  
-    'postDm' => (new HomeController())->postDm(),  
-    'xoadm' => (new HomeController())->deleteDm(),  
-    'formSuaDm' => (new HomeController())->formSuaDm(),  
-    'postSuaDm' => (new HomeController())->updateDm(),  
+    'addDm' => (new HomeController())->formAddDm(),
+    'listDm' => (new HomeController())->listDm(),
+    'postDm' => (new HomeController())->postDm(),
+    'xoadm' => (new HomeController())->deleteDm(),
+    'formSuaDm' => (new HomeController())->formSuaDm(),
+    'postSuaDm' => (new HomeController())->updateDm(),
 
     // Products (Sản Phẩm)  
-    'addSP' => (new HomeController())->formAddSP(),  
-    'listSP' => (new HomeController())->listSP(),  
-    'postSP' => (new HomeController())->postSP(),  
-    'xoasp' => (new HomeController())->deleteSP(),  
+    'addSP' => (new HomeController())->formAddSP(),
+    'listSP' => (new HomeController())->listSP(),
+    'postSP' => (new HomeController())->postSP(),
+    'xoasp' => (new HomeController())->deleteSP(),
     'formSuaSP' => (new HomeController())->formSuaSP(),
-    'suasp' => (new HomeController())->formSuaSP(),    
-    'updateSP' => (new HomeController())->updateSP(),  
-
-
+    'suasp' => (new HomeController())->formSuaSP(),
+    'updateSP' => (new HomeController())->updateSP(),
 };
 
-    
+
 
 include './home/footer.php';
 ob_end_flush();
