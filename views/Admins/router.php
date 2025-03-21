@@ -22,7 +22,15 @@ match ($act) {
     'formSuaDm' => (new HomeController())->formSuaDm(),  
     'postSuaDm' => (new HomeController())->updateDm(),  
 
-   
+    // Products (Sản Phẩm)  
+    'addSP' => (new HomeController())->formAddSP(),  
+    'listSP' => (new HomeController())->listSP(),  
+    'postSP' => (new HomeController())->postSP(),  
+    'xoasp' => (new HomeController())->deleteSP(),  
+    'formSuaSP' => (new HomeController())->formSuaSP(),
+    'suasp' => (new HomeController())->formSuaSP(),    
+    'updateSP' => (new HomeController())->updateSP(),  
+
 
 };
 
