@@ -210,14 +210,16 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?act=listTaiKhoan" aria-expanded="false"
+                            <!-- href="?act=listTaiKhoan" -->
+                            <a class="nav-link" aria-expanded="false"
                                 aria-controls="form-elements">
                                 <i class="menu-icon mdi mdi-account-circle-outline"></i>
                                 <span class="menu-title">Quản lí tài khoản</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="?act=listDonHang" aria-expanded="false"
+                            <!-- href="?act=listDonHang"  -->
+                            <a class="nav-link" aria-expanded="false"
                                 aria-controls="charts">
                                 <i class="menu-icon mdi mdi-chart-line"></i>
                                 <span class="menu-title">Quản lí đơn hàng</span>
@@ -243,14 +245,16 @@
                         </a>
                     </li> -->
                         <li class="nav-item">
-                            <a class="nav-link" href="?act=listComments" aria-expanded="false"
+                            <!-- href="?act=listComments" -->
+                            <a class="nav-link" aria-expanded="false"
                                 aria-controls="auth">
                                 <i class="menu-icon mdi mdi-card-text-outline"></i>
                                 <span class="menu-title">Quản lí bình luận</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/base_test_DA1/public/" aria-expanded="false"
+                            <!-- href="http://localhost/base_test_DA1/public/" -->
+                            <a class="nav-link" aria-expanded="false"
                                 aria-controls="auth">
                                 <i class="menu-icon bi bi-box-arrow-right"></i>
                                 <span class="menu-title">Đăng xuất</span>
