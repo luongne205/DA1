@@ -37,7 +37,7 @@ class HomeController
         if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST)) {
             $name = $_POST['name'];
             if ($this->modelAdmin->postDm(name: $name)) {
-                header(header: 'location: router.php?act=listDm');
+                header( 'location: router.php?act=listDm');
                 exit;
             }
         }
@@ -48,7 +48,7 @@ class HomeController
         $record = $this->modelAdmin->getDmById($id);
         if ($record) { // Kiểm tra xem bản ghi có tồn tại không
             if ($this->modelAdmin->deleteDm($id)) {
-                header(header: 'Location: router.php?act=listDm');
+                header('Location: router.php?act=listDm');
                 exit;
             } else {
                 echo "Không thể xóa danh mục.";
