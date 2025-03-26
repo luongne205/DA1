@@ -57,6 +57,52 @@ class ClientModels
             return false;
         }
     }
+        // Login
+        public function checkAcc($userOrEmail, $pass) {
+            $sql = 'SELECT * FROM accounts WHERE (username = :userOrEmail OR email = :userOrEmail) AND password = :pass';
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute([
+                ':userOrEmail' => $userOrEmail,
+                ':pass' => $pass
+            ]);
+            return $stmt->fetch();
+        }
+    
+        // đổi mật khẩu
+        
+    
+        // Danh mục
+        public function getAllDanhMuc() {
+            try {
+                $sql = 'SELECT * FROM categories ORDER BY id DESC';
+        
+                $stmt = $this->conn->prepare($sql);
+            
+                $stmt->execute();
+    
+                return $stmt->fetchAll();
+            } catch(Exception $e) {
+                echo $e->getMessage();
+            }
+        }
+    
+        // Lấy sản phẩm theo từng nhóm danh mục
+        public function getAllProductsByCategory() {
+            $sql = "SELECT 
+                        products.id, 
+                        products.namesp, 
+                        products.price, 
+                        products.img,
+                        products.mota,
+                        products.quantity,
+                        categories.name AS category_name
+                    FROM categories
+                    LEFT JOIN products ON categories.id = products.iddm
+                    ORDER BY categories.name, products.price ASC";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        }
     
 
 }
