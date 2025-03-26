@@ -103,7 +103,29 @@ class ClientModels
             $stmt->execute();
             return $stmt->fetchAll(PDO::FETCH_ASSOC);
         }
-    
+        public function getTop10Sp(){
+            try {
+                // Câu lệnh SQL để lấy 10 sản phẩm có lượt xem cao nhất
+                $sql = "SELECT 
+                        p.id AS id, 
+                        p.namesp AS namesp, 
+                        p.img,
+                        p.price,
+                        SUM(bi.quantity) AS total_quantity_sold
+                    FROM bill_items bi
+                    JOIN bills b ON bi.bill_id = b.id
+                    JOIN products p ON bi.product_id = p.id
+                    WHERE b.bill_status = 3 
+                    GROUP BY bi.product_id
+                    ORDER BY total_quantity_sold DESC
+                    LIMIT 10";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->execute();
+                return $stmt->fetchAll();
+            } catch (Exception $e) {
+                echo $e->getMessage();
+            }
+        }
 
 }
 
