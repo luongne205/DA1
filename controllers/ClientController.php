@@ -403,3 +403,71 @@ class ClientController
         $listCarts= $this->modelClients->listCartByUser($_SESSION['user']['id']);
         require_once '../views/Clients/carts/cart.php';
     }
+
+
+    
+    // Xử lí tăng thông số
+    public function tangGiam(){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['user'])){
+            if(isset($_POST['tang'])){
+                $id = $_GET['id'];
+                $idpro = $this->modelClients->getIdProduct($id);
+                $price = $this->modelClients->getPriceByIdCart($id);
+                // Gọi số lượng sản phẩm hiện có trong đơn hàng ra
+                $QuantityCart = $this->modelClients->getSoLuongById($id);
+                $thanhTien = $price * ($QuantityCart + 1);
+                // Lấy số lượng của sản phẩm đó trong bảng products;
+                $quantityPro = $this->modelClients->getCartQuantity($idpro);
+                // Trừ đi số lượng trong products và số lượng còn lại trong carts
+               if($quantityPro > 0){
+                    $this->modelClients->updateQuantityProducts($idpro, $quantityPro - 1 );
+                    $this->modelClients->updateRemainingQuantity($idpro, $quantityPro - 1);
+
+                    // Update các chỉ số xoay quanh số lượng
+                    $this->modelClients->updateQuantity($_SESSION['user']['id'], $idpro, $QuantityCart + 1, $thanhTien);
+               }else{
+                        echo '<script>
+                        // Khắc phục lỗi mất thanh cuộn
+                            document.body.style.overflowX = "auto"; 
+                            document.body.style.overflowY = "auto";  
+                            Swal.fire({
+                                text: "Sản phẩm đã hết hàng!",
+                                icon: "error",
+                                confirmButtonColor: "#C62E2E"
+                            });
+                        </script>';
+               } 
+            }elseif(isset($_POST['giam'])){
+                $id = $_GET['id'];
+                $idpro = $this->modelClients->getIdProduct($id);
+                $price = $this->modelClients->getPriceByIdCart($id);
+                // Gọi số lượng sản phẩm hiện có trong đơn hàng ra
+                $QuantityCart = $this->modelClients->getSoLuongById($id);
+                $thanhTien = $price * ($QuantityCart - 1);
+                // Lấy số lượng của sản phẩm đó trong bảng products;
+                $quantityPro = $this->modelClients->getCartQuantity($idpro);
+                // Trừ đi số lượng trong products và số lượng còn lại trong carts
+               if($QuantityCart <= 1){
+                echo '<script>
+                // Khắc phục lỗi mất thanh cuộn
+                    document.body.style.overflowX = "auto"; 
+                    document.body.style.overflowY = "auto";  
+                    Swal.fire({
+                        text: "Giới hạn giảm là 1!",
+                        icon: "error",
+                        confirmButtonColor: "#C62E2E"
+                    });
+                </script>';
+               }else{
+                $this->modelClients->updateQuantityProducts($idpro, $quantityPro + 1 );
+                $this->modelClients->updateRemainingQuantity($idpro, $quantityPro + 1);
+
+                // Update các chỉ số xoay quanh số lượng
+                $this->modelClients->updateQuantity($_SESSION['user']['id'], $idpro, $QuantityCart - 1, $thanhTien);
+    
+               } 
+            }
+        }
+        $listCarts = $this->modelClients->listCartByUser($_SESSION['user']['id']);
+        require_once '../views/Clients/carts/cart.php';
+    }
