@@ -154,6 +154,29 @@ class ClientModels
             return false;
         }
     }
+    public function load_sanpham_cungloai($id, $iddm){
+        try {
+         $sql= "SELECT * FROM products WHERE iddm = ".$iddm." AND id <> ".$id;
+         $stmt = $this->conn->prepare($sql);
+         $stmt->execute();
+         return $stmt->fetchAll();
+        } catch (Exception $e) {
+         echo $e->getMessage();
+         }
+     }
+     public function getNewestProducts($limit = 4) {
+         try {
+             $sql = "SELECT * FROM products ORDER BY id DESC LIMIT :limit";
+             $stmt = $this->conn->prepare($sql);
+             $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+             $stmt->execute();
+             return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: []; // Trả về mảng rỗng nếu không có kết quả
+         } catch (Exception $e) {
+             echo 'Error: ' . $e->getMessage();
+             return []; // Trả về mảng rỗng nếu có lỗi
+         }
+     }
+     
 
 }
 
