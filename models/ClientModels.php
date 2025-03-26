@@ -126,6 +126,34 @@ class ClientModels
                 echo $e->getMessage();
             }
         }
+          // Tìm kiếm theo sản phẩm
+    public function getAllSP($search) {
+        try {
+            $sql = "SELECT * FROM products WHERE namesp LIKE '%$search%'";
+            
+            $stmt = $this->conn->prepare($sql);
+            $stmt->execute();
+    
+            return $stmt->fetchAll();
+        } catch(Exception $e) {
+            echo $e->getMessage();
+        }
+    }
+    public function getSPById($id) {  
+        try {
+            $sql = 'SELECT * FROM products WHERE id ='.$id;
+    
+            $stmt = $this->conn->prepare($sql);
+        
+            $stmt->execute();
+
+            return $stmt->fetch();
+            
+        } catch (Exception $e) {
+            echo 'Error: ' . $e->getMessage();
+            return false;
+        }
+    }
 
 }
 
