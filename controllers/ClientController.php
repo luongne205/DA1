@@ -51,6 +51,6 @@ class ClientController
                         echo "Lỗi khi lưu tệp ảnh.";
                         return;
                     }
-                }
+                }}}}
 
             
