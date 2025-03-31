@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 if (!isset($_SESSION['user'])) {
     $_SESSION['user'] = null; // Hoặc giá trị mặc định
@@ -27,56 +27,55 @@ match ($act) {
     // Trang chủ
     '/' => (new ClientController())->home(),
     // Tài khoản
-    'updateAcount' => (new ClientController()) -> updateAcount(),
-    'login' => (new ClientController()) -> login(),
-    'postLogin' => (new ClientController()) -> postLogin(),
-    'signup' => (new ClientController()) -> signUp(),
-    'logout' => (new ClientController()) -> logOut(),
+    'updateAcount' => (new ClientController())->updateAcount(),
+    'login' => (new ClientController())->login(),
+    'postLogin' => (new ClientController())->postLogin(),
+    'signup' => (new ClientController())->signUp(),
+    'logout' => (new ClientController())->logOut(),
+
 
     // Xử lí tài khoản
-    'postAddAcount' => (new ClientController()) -> addAccount(),
-    
+    'postAddAcount' => (new ClientController())->addAccount(),
+
 
     //
-    'chitietSP' => (new ClientController()) -> chitietSP(),
+    'chitietSP' => (new ClientController())->chitietSP(),
 
 
     // Tìm kiếm
-    'search' => (new ClientController()) ->search(),
+    'search' => (new ClientController())->search(),
     // Giỏ hàng
-    'viewcart' => (new ClientController()) ->viewCarts(),
-    'addcart' => (new ClientController()) ->carts(),
-    'deletecart' => (new ClientController()) ->deleteCarts(),
-    'tangGiam' => (new ClientController()) -> tangGiam(),
+    'viewcart' => (new ClientController())->viewCarts(),
+    'addcart' => (new ClientController())->carts(),
+    'deletecart' => (new ClientController())->deleteCarts(),
+    'tangGiam' => (new ClientController())->tangGiam(),
 
     // Bill
-    'thanhtoan' => (new ClientController()) ->bills(),
-    'billconfirm' => (new ClientController()) ->billConfirm(),
-    'billInfo' => (new ClientController()) -> infoBills(),
-    'bill_item' => (new ClientController()) -> bill_items(),
-    'huyDon' =>(new ClientController()) -> huyDon(),
+    'thanhtoan' => (new ClientController())->bills(),
+    'billconfirm' => (new ClientController())->billConfirm(),
+    'billInfo' => (new ClientController())->infoBills(),
+    'bill_item' => (new ClientController())->bill_items(),
+    'huyDon' => (new ClientController())->huyDon(),
 
     // Mua ngay
-    'postMuaNgay' => (new ClientController()) ->postMuaNgay(),
-    'xuly_thanhtoan' => (new ClientController()) ->xuLiMuaNgay(),
+    'postMuaNgay' => (new ClientController())->postMuaNgay(),
+    'xuly_thanhtoan' => (new ClientController())->xuLiMuaNgay(),
 
     // Sản phẩm chi tiết
-    'sanphamchitiet' => (new ClientController()) -> sanphamchitiet(),
+    'sanphamchitiet' => (new ClientController())->sanphamchitiet(),
     // Xử lí tăng giảm số lượng mua hàng
-    'tangGiamMuaNgay' => (new ClientController()) ->tangGiamMuaNgay(),
+    'tangGiamMuaNgay' => (new ClientController())->tangGiamMuaNgay(),
     // 'listNewestProducts' => (new ClientController()) -> listNewestProducts(),
     // Comment
-    'formComment' => (new ClientController()) -> formComment(),
-    'deleteComment' => (new ClientController()) -> deleteComment(),
+    'formComment' => (new ClientController())->formComment(),
+    'deleteComment' => (new ClientController())->deleteComment(),
     // sản phẩm theo danh mục
-    'danhmuc'=> (new ClientController())-> productByCasterri(),
+    'danhmuc' => (new ClientController())->productByCasterri(),
     //yeuthich
     'listFavourites' => (new ClientController())->listFavourites(),
     'addFavourite' => (new ClientController())->addFavourite(),
     'removeFavourite' => (new ClientController())->removeFavourite(),
-
 };
 
 include '../views/Clients/footer.php';
 ob_end_flush();
-
