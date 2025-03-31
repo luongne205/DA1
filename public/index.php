@@ -33,13 +33,6 @@ match ($act) {
     'signup' => (new ClientController()) -> signUp(),
     'logout' => (new ClientController()) -> logOut(),
 
-    // quên mật khẩu
-    'forgot_password' => (new ClientController()) -> forgot_password(),
-   
-    'verify_code' => (new ClientController()) -> verify_code(),
-    
-    'reset_password' => (new ClientController()) -> reset_password(),
-    
     // Xử lí tài khoản
     'postAddAcount' => (new ClientController()) -> addAccount(),
     
