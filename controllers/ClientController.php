@@ -59,7 +59,7 @@ class ClientController
                        // Cập nhật thành công
                        // Lấy lại thông tin người dùng mới
                        $_SESSION['user'] = $this->modelClients->getAccountById($id);
-                       header('Location: http://localhost/base_test_DA1/public/');
+                       header('Location: http://localhost/DA1/public/');
                        exit;
                    } else {
                        echo "Lỗi khi cập nhật tài khoản.";
@@ -108,7 +108,7 @@ class ClientController
                            confirmButtonColor: "#C62E2E"
                            });
                      </script>';
-                       header('Location: http://localhost/base_test_DA1/public/');
+                       header('Location: http://localhost/DA1/public/');
                        exit;
                    }
                } else {
@@ -123,7 +123,7 @@ class ClientController
        public function logOut(){
            session_unset();
            session_destroy();
-           header('Location: http://localhost/base_test_DA1/public/');
+           header('Location: http://localhost/DA1/public/');
        }
        public function signUp() {
            require_once '../views/Clients/accounts/signUp.php';
@@ -136,7 +136,7 @@ class ClientController
                $sdt = $_POST['sdt'];
                $password = $_POST['password'];
                if($this->modelClients->addAccount($username, $email, $password, $sdt)){
-                   header('location: http://localhost/base_test_DA1/public/');
+                   header('location: http://localhost/DA1/public/');
                }
            }
        }
@@ -258,7 +258,7 @@ class ClientController
 
             // var_dump($datasSearch);
         }else{
-            header('location: http://localhost/base_test_DA1/public/');
+            header('location: http://localhost/DA1/public/');
         }
         require_once '../views/Clients/products/products.php';
     }
@@ -284,7 +284,7 @@ class ClientController
         </script>';
         $listCarts= $this->modelClients->listCartByUser($_SESSION['user']['id']);
         // var_dump($listCarts);
-        // header('location: http://localhost/base_test_DA1/public/');
+        // header('location: http://localhost/DA1/public/');
         $this->home();
         exit();
         }
@@ -508,7 +508,7 @@ class ClientController
                 $listCarts = $this->modelClients->listCartByUser($userId);
                 // Cập nhật lại session giỏ hàng dựa trên danh sách mới
                 $_SESSION['cart'] = $listCarts;
-                header('location: http://localhost/base_test_DA1/public/?act=viewcart');
+                header('location: http://localhost/DA1/public/?act=viewcart');
         }
         $listCarts = $this->modelClients->listCartByUser($_SESSION['user']['id']);
         require_once '../views/Clients/carts/cart.php';
@@ -593,7 +593,7 @@ class ClientController
                         confirmButtonText: 'OK'
                         }).then((result) => {
                         if (result.isConfirmed) {
-                            window.location.href = `http://localhost/base_test_DA1/public/?act=bill_item&id={$idbill}`;
+                            window.location.href = `http://localhost/DA1/public/?act=bill_item&id={$idbill}`;
                         }
                         });
                         }, 2000);
@@ -702,7 +702,7 @@ class ClientController
         </script>';
         $listCarts= $this->modelClients->listCartByUser($_SESSION['user']['id']);
         // var_dump($listCarts);
-        // header('location: http://localhost/base_test_DA1/public/');
+        // header('location: http://localhost/DA1/public/');
         $this->home();
         exit();
         }
@@ -809,8 +809,8 @@ class ClientController
            $orderInfo = "Thanh toán qua MoMo";
            $amount = "10000";
            $orderId = time() ."";
-           $redirectUrl = "http://localhost/base_test_DA1/public/";
-           $ipnUrl = "http://localhost/base_test_DA1/public/";
+           $redirectUrl = "http://localhost/DA1/public/";
+           $ipnUrl = "http://localhost/DA1/public/";
            $extraData = "";
 
    
@@ -926,7 +926,7 @@ class ClientController
                                 confirmButtonText: 'OK'
                                 }).then((result) => {
                                 if (result.isConfirmed) {
-                                    window.location.href = `http://localhost/base_test_DA1/public/?act=bill_item&id={$idbill}`;
+                                    window.location.href = `http://localhost/DA1/public/?act=bill_item&id={$idbill}`;
                                 }
                                 });
                                 }, 2000);

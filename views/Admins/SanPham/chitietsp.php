@@ -71,7 +71,7 @@
 
         <!-- Footer -->
         <div class="text-center mt-4">
-            <a href="http://localhost/base_test_DA1/views/Admins/router.php" class="btn btn-danger">Về trang chủ</a>
+            <a href="http://localhost/DA1/views/Admins/router.php" class="btn btn-danger">Về trang chủ</a>
             <p class="mt-3 text-muted">&copy; 2024 Bannes&noble.</p>
         </div>
     </div>

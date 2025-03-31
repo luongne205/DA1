@@ -250,7 +250,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/base_test_DA1/public/" aria-expanded="false"
+                            <a class="nav-link" href="http://localhost/DA1/public/" aria-expanded="false"
                                 aria-controls="auth">
                                 <i class="menu-icon bi bi-box-arrow-right"></i>
                                 <span class="menu-title">Đăng xuất</span>
