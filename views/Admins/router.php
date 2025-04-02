@@ -32,6 +32,22 @@ match ($act) {
     'formSuaSP' => (new HomeController())->formSuaSP(),
     'suasp' => (new HomeController())->formSuaSP(),
     'updateSP' => (new HomeController())->updateSP(),
+
+     // Tài khoản
+     'listTaiKhoan' => (new HomeController()) ->listTaiKhoan(),
+     'update_account_status' => (new HomeController()) -> accoutAtive(),
+     'update_account_role' => (new HomeController()) -> accoutRole(),
+ 
+     //đơn hàng 
+     'listDonHang' => (new HomeController())->listBills(),
+     'updateOrder' => (new HomeController()) -> updateStatusBills(),
+     'xemchitiet' =>(new HomeController()) ->bill_items(),
+     // Xác nhận đơn hàng
+     'confirmOrder' => (new HomeController()) ->confirmOrder(),
+     //binh luan
+     'listComments' => (new HomeController())->listComments(),
+     'deleteComment' => (new HomeController())->deleteComment(),
+     'toggleComment' => (new HomeController())->toggleComment(),
 };
 
 
