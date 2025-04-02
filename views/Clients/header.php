@@ -112,7 +112,7 @@
                     <!-- Logo -->
                     <div class="col-12 col-md-4 text-center text-md-start">
                         <div class="h5 m-0">
-                            <a href="http://localhost/DA1-master/public/" class="text-decoration-none text-dark">BARNES & NOBLE</a>
+                            <a href="http://localhost/DA1/public/" class="text-decoration-none text-dark">BARNES & NOBLE</a>
                         </div>
                     </div>
                     <!-- Search Bar -->
@@ -165,7 +165,7 @@
                                     <ul class="dropdown-menu">
                                         <li><a class="dropdown-item" href="?act=updateAcount&id=<?= $id ?>">Cập nhật tài khoản</a></li>
                                         <?php if ($role === 1) { ?>
-                                            <li><a class="dropdown-item" href="http://localhost/DA1-master/views/Admins/router.php">Đăng nhập admin</a></li>
+                                            <li><a class="dropdown-item" href="http://localhost/DA1/views/Admins/router.php">Đăng nhập admin</a></li>
                                         <?php } else { ?>
                                             <li><a class="dropdown-item" href="?act=signup">Lấy lại pass</a></li>
                                             <li><a class="dropdown-item" href="?act=listFavourites">Sản Phẩm yêu thích</a></li>
@@ -205,7 +205,7 @@
                 <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="http://localhost/DA1-master/public/">Trang chủ</a>
+                            <a class="nav-link" href="http://localhost/DA1/public/">Trang chủ</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Giới thiệu</a>
