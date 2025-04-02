@@ -71,7 +71,7 @@
                     <?php endforeach; ?>
                 </tbody>
             </table>
-            <a href="http://localhost/base_test_DA1/public/" class="btn btn-warning">Tiếp tục mua hàng</a>
+            <a href="http://localhost/DA1/public/" class="btn btn-warning">Tiếp tục mua hàng</a>
         </div>
 
         <!-- Tóm tắt đơn hàng -->

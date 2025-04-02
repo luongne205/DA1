@@ -107,7 +107,7 @@
 
         <!-- Footer -->
         <div class="text-center mt-4">
-            <a href="http://localhost/base_test_DA1/public/" class="btn btn-red">Về trang chủ</a>
+            <a href="http://localhost/DA1/public/" class="btn btn-red">Về trang chủ</a>
             <p class="mt-3 text-muted">&copy; 2024 Bannes&noble.</p>
         </div>
     </div>
